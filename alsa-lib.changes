@@ -1,0 +1,38 @@
+* Fri Sep 2 2011 Jouni Peltonen <jouni.peltonen@cybercom.com> 1.0.24.1
+- Update to 1.0.24.1
+
+* Wed Jun 2 2010 Bin Gao <bin.gao@intel.com> 1.0.23
+- Update to 1.0.23
+- Remove "Require: alsa-plugins-pulseaudio" which is wrong
+
+* Tue Apr 27 2010 Yan Li <yan.i.li@intel.com> - 1.0.22
+- Enable ALSA to use PulseAudio by default so that sounds from
+  applications using ALSA can be mixed with sounds from applications
+  using PulseAudio (BMC#1108)
+
+* Fri Mar 26 2010 Anas Nashif <anas.nashif@intel.com> - 1.0.22
+- Really clean spec files
+
+* Wed Mar 24 2010 Bin Gao <bin.gao@intel.com> 1.0.22
+- Dropped unuseful patches and fixed spectacle files
+
+* Fri Dec 25 2009 Bin Gao <bin.gao@intel.com> 1.0.22
+- Update to 1.0.22
+- Dropped 3 patches
+
+* Mon Sep 21 2009 Vivian Zhang <vivian.zhang@intel.com> 1.0.21
+- Update to 1.0.21
+- Merged 3 upstream patches
+
+* Wed May 20 2009 Vivian Zhang <vivian.zhang@intel.com> 1.0.20
+- Update to 1.0.20
+
+* Fri Feb 13 2009 Anas Nashif <anas.nashif@intel.com> 1.0.19
+- Update to 1.0.19
+
+* Thu Nov 20 2008 Vivian zhang <vivian.zhang@intel.com> 1.0.18
+- Update to 1.0.18 and new configuration stype
+- Remove upstreamed patches
+
+* Fri Sep 05 2008 Anas Nashif <anas.nashif@intel.com> 1.0.17
+- Initial import into moblin
