@@ -1,3 +1,6 @@
+* Mon Jan 14 2019 Tomi Leppänen <tomi.leppanen@jolla.com> - 1.0.26-2
+- [packaging] Add alsa-lib-docs subpackage. Contributes to JB#24119
+
 * Sat Sep 29 2012 Marko Saukko <marko.saukko@jollamobile.com> - 1.0.26
 - Update to version 1.0.26
 - Contributing also to MER#174 move all to /usr
