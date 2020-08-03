@@ -1,12 +1,14 @@
 Name:       alsa-lib
 Summary:    The Advanced Linux Sound Architecture (ALSA) library
-Version:    1.0.26
-Release:    2
-Group:      System/Libraries
+Version:    1.2.3.2
+Release:    1
 License:    LGPLv2+
 URL:        http://www.alsa-project.org/
-Source0:    ftp://ftp.alsa-project.org/pub/lib/alsa-lib-%{version}.tar.bz2
+Source0:    %{name}-%{version}.tar.gz
 Source1:    asound.conf
+BuildRequires: autoconf
+BuildRequires: automake
+BuildRequires: libtool
 Requires(post): coreutils
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
@@ -21,7 +23,6 @@ the older OSS API, providing binary compatibility for most OSS programs.
 
 %package devel
 Summary:    Development files from the ALSA library
-Group:      Development/Libraries
 Requires:   %{name} = %{version}-%{release}
 
 %description devel
@@ -33,31 +34,24 @@ against the ALSA libraries and interfaces.
 
 %package doc
 Summary:   Documentation for %{name}
-Group:     Documentation
 Requires:  %{name} = %{version}-%{release}
 
 %description doc
 Man and info pages for %{name}.
 
 %prep
-%setup -q -n %{name}-%{version}
+%autosetup -n %{name}-%{version}/%{name}
 
 %build
 
-%configure --disable-static \
+%reconfigure --disable-static \
     --disable-aload
 
-make %{?jobs:-j%jobs}
+%make_build
 
 %install
-rm -rf %{buildroot}
 %make_install
-mkdir -p %{buildroot}/etc
-cp -a %{SOURCE1} %{buildroot}/etc
-
-mkdir -p $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
-install -m0644 -t $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version} \
-        ChangeLog TODO doc/asoundrc.txt
+install -D -p -m 0644 %{SOURCE1} %{buildroot}/etc/asound.conf
 
 %post -p /sbin/ldconfig
 
@@ -68,20 +62,21 @@ install -m0644 -t $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version} \
 %license COPYING
 %config %{_sysconfdir}/asound.conf
 %{_libdir}/libasound.so.*
+%{_libdir}/libatopology.so.*
 %{_bindir}/aserver
-%{_libdir}/alsa-lib/
 %{_datadir}/alsa/
 
 %files devel
 %defattr(-,root,root,-)
-%dir %{_includedir}/alsa
-%{_includedir}/alsa/*.h
-%{_includedir}/alsa/sound/*.h
+%{_includedir}/alsa
+%{_includedir}/asoundlib.h
 %{_includedir}/sys/asoundlib.h
 %{_libdir}/libasound.so
+%{_libdir}/libatopology.so
 %{_libdir}/pkgconfig/alsa.pc
+%{_libdir}/pkgconfig/alsa-topology.pc
 %{_datadir}/aclocal/alsa.m4
 
 %files doc
 %defattr(-,root,root,-)
-%{_docdir}/%{name}-%{version}
+%doc ChangeLog TODO doc/asoundrc.txt
