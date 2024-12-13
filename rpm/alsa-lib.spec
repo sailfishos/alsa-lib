@@ -1,6 +1,6 @@
 Name:       alsa-lib
 Summary:    The Advanced Linux Sound Architecture (ALSA) library
-Version:    1.2.8
+Version:    1.2.13
 Release:    1
 License:    LGPLv2+
 URL:        http://www.alsa-project.org/
@@ -58,7 +58,6 @@ install -D -p -m 0644 %{SOURCE1} %{buildroot}/etc/asound.conf
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(-,root,root,-)
 %license COPYING
 %config %{_sysconfdir}/asound.conf
 %{_libdir}/libasound.so.*
@@ -67,7 +66,6 @@ install -D -p -m 0644 %{SOURCE1} %{buildroot}/etc/asound.conf
 %{_datadir}/alsa/
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/alsa
 %{_includedir}/asoundlib.h
 %{_includedir}/sys/asoundlib.h
@@ -78,5 +76,4 @@ install -D -p -m 0644 %{SOURCE1} %{buildroot}/etc/asound.conf
 %{_datadir}/aclocal/alsa.m4
 
 %files doc
-%defattr(-,root,root,-)
 %doc ChangeLog TODO doc/asoundrc.txt
