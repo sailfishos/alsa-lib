@@ -1,9 +1,9 @@
 Name:       alsa-lib
 Summary:    The Advanced Linux Sound Architecture (ALSA) library
-Version:    1.2.13
+Version:    1.2.15.3
 Release:    1
 License:    LGPLv2+
-URL:        http://www.alsa-project.org/
+URL:        https://github.com/sailfishos/alsa-lib
 Source0:    %{name}-%{version}.tar.gz
 Source1:    asound.conf
 BuildRequires: autoconf
